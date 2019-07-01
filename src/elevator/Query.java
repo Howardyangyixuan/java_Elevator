@@ -18,6 +18,7 @@ public class Query {
 
     //时间的要求
     private static double inftyTime = 1e12;
+    private static int QhighLevel = 10, QlowLevel = 1;
 
     //请求的属性
     private int targetFloor;
@@ -64,9 +65,12 @@ public class Query {
         try {
             target = Integer.parseInt(str[2]);
         } catch (NumberFormatException except) {
-            throw new Exception("Floor Number Out Of Range.");
+            throw new Exception("Floor Number Out Of Range or Wrong Format.");
         }
 
+        if(target<QlowLevel||target>QhighLevel){
+            throw new Exception("Floor Number Out of Range.");
+        }
         //设定方向
         if (str[3].equals("UP")) {
             direction = Direction.UP;
@@ -114,7 +118,7 @@ public class Query {
     }
 
     public boolean repOk() {
-        if (!(targetFloor <= 10 && targetFloor >= 1)) {
+        if (!(targetFloor <= QhighLevel && targetFloor >= QlowLevel)) {
             return false;
         }
         if (!(queryTime >= 0 && queryTime < inftyTime)) {

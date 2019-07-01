@@ -8,17 +8,12 @@ public class QueryTest{
     //测试构造方法1
 
     //测试构造方法2
-    @Test
-    public void testString(){
+    @Test(expected = Throwable.class)
+    public void testString()throws Throwable{
         //3.发起人
-        try {
             Query q1 = new Query("(QR,1,UP,1)");
             assertFalse(q1.repOk());
             System.out.println("here");
-        }catch(Throwable e){
-            e.printStackTrace();
-        }
-
     }
 
     @Test
@@ -26,12 +21,12 @@ public class QueryTest{
         //3.发起人
         try {
             Query b4 =new Query("(ER,1,NONE,1)");
-            assertTrue(b4.repOk());
-           // assertFalse(b4.repOk());
+            //assertTrue(b4.repOk());
+           //assertFalse(b4.repOk());
+           assertFalse(true);
         }catch(Throwable e){
             e.printStackTrace();
         }
-
     }
 
     @Test(expected = Throwable.class)
