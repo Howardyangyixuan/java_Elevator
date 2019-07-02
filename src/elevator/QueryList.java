@@ -26,17 +26,17 @@ public class QueryList {
     private double lastTime;
 
     //构造方法1
-    public QueryList(int high, int low, double time) throws Exception {
+    public QueryList(int high, int low, double time) /*throws Exception*/ {
         queue = new ArrayList<Query>();
-        if(high<=low){
-            throw new Exception("High is no more than low.");
-        }
+//        if(high<=low){
+//            throw new Exception("High is no more than low.");
+//        }
         highLevel = high;
         lowLevel = low;
         lastTime = time;
     }
     //构造方法2
-    public QueryList(int high, int low) throws Exception{
+    public QueryList(int high, int low) /*throws Exception*/{
         this(high, low, 0);
     }
 
